@@ -11,7 +11,7 @@ import shop6 from "../assets/images/shop6.webp";
 import shop7 from "../assets/images/shop7.webp";
 import shop8 from "../assets/images/shop8.webp";
 import shop9 from "../assets/images/shop9.webp";
-import shop10 from "../assets/images/shop11.webp";
+import shop10 from "../assets/images/shop1.webp";
 import shop11 from "../assets/images/shop11.webp";
 import shop12 from "../assets/images/shop12.webp";
 import shop13 from "../assets/images/shop13.webp";
@@ -57,9 +57,6 @@ const ShopPage = () => {
   const start = (currentPage - 1) * itemsPerPage;
   const displayed = sortedProducts.slice(start, start + itemsPerPage);
 
-  const scrollToFooter = () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  };
 
   return (
     <div className="flex flex-col md:flex-row w-full min-h-screen bg-white px-6 md:px-20 py-12">
@@ -90,7 +87,8 @@ const ShopPage = () => {
             className="border border-gray-300 text-sm px-3 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-amber-700"
           >
             <option value="popularity">Sort by popularity</option>
-            <option value="latest">Sort by latest</option>
+            <option value="latest">Sort by average rating</option>
+            <option value="latest">Sort by Latest</option>
             <option value="lowToHigh">Sort by price: low to high</option>
             <option value="highToLow">Sort by price: high to low</option>
           </select>
@@ -115,7 +113,7 @@ const ShopPage = () => {
 
               {/* Out of stock overlay */}
               {!p.inStock && (
-                <div className="absolute inset-0 bg-white/80 flex items-center justify-center">
+                <div className="absolute mt-40 inset-0 bg-white/80 flex items-center justify-center h-15">
                   <span className="text-black font-semibold text-sm tracking-wide">
                     OUT OF STOCK
                   </span>
@@ -161,15 +159,7 @@ const ShopPage = () => {
           </button>
         </div>
 
-        {/* Scroll to footer */}
-        <div className="text-center mt-6">
-          <button
-            onClick={scrollToFooter}
-            className="text-amber-700 text-sm underline hover:text-amber-800"
-          >
-            Go to footer ↓
-          </button>
-        </div>
+        
       </main>
     </div>
   );
