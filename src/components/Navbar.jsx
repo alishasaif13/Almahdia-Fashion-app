@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import {
   FaInstagram,
@@ -11,6 +12,29 @@ import {
 import { MdEmail, MdPhone } from "react-icons/md";
 
 function Navbar() {
+  const [cartCount, setCartCount] = useState(0);
+
+  // Load cart count from localStorage
+  useEffect(() => {
+    const updateCartCount = () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      setCartCount(cart.length);
+    };
+
+    updateCartCount();
+
+    // Listen for updates (even when other components add to cart)
+    window.addEventListener("storage", updateCartCount);
+
+    // Custom event for live updates
+    window.addEventListener("cartUpdated", updateCartCount);
+
+    return () => {
+      window.removeEventListener("storage", updateCartCount);
+      window.removeEventListener("cartUpdated", updateCartCount);
+    };
+  }, []);
+
   return (
     <>
       {/* ---------- Top Bar ---------- */}
@@ -35,7 +59,7 @@ function Navbar() {
               <span className="text-sm">Gujranwala, Punjab, Pakistan</span>
             </div>
 
-            {/* Social Links (external = still <a>) */}
+            {/* Social Links */}
             <a
               href="https://www.instagram.com/almahdiacollection?igsh=MXRkcGRmcDdnNHg3aw=="
               target="_blank"
@@ -142,14 +166,25 @@ function Navbar() {
           </div>
 
           {/* Search + Cart Icons */}
-          <div className="flex items-center space-x-4 text-gray-800">
+          <div className="flex items-center space-x-4 text-gray-800 relative">
             <button className="p-2 rounded border border-black hover:bg-black hover:text-white transition">
               <FaSearch size={16} />
             </button>
             <span className="text-gray-400">|</span>
-            <button className="p-2 rounded border border-transparent hover:bg-black hover:text-white transition">
+
+            {/* Cart Button */}
+            <Link
+              to="/cart"
+              className="relative p-2 rounded border border-transparent hover:bg-black hover:text-white transition"
+            >
               <FaShoppingCart size={16} />
-            </button>
+
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-amber-700 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
           </div>
         </div>
       </header>
