@@ -1,16 +1,27 @@
-# React + Vite
+# Almahdia Fashion App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live demo: https://almahdia-fashion-app.vercel.app
 
-Currently, two official plugins are available:
+A clean, responsive fashion store frontend built with Next.js (React) and modern CSS. This project showcases product listings, product details, a client-side shopping cart (saved to `localStorage`), and polished UI sections (hero, features, about, contact). Deployed on Vercel.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Responsive layout for mobile/tablet/desktop  
+- Product listing grid with name, price, and quick add-to-cart  
+- Product details / modal (or details page)  
+- Shopping cart persisted in `localStorage` (add, remove, update qty)  
+- Simple hero and promotional sections  
+- Clean, hospital/brand-like color blocks and consistent design (as in the live demo)  
+- Deployed to Vercel for instant hosting
 
-## Expanding the ESLint configuration
+> _Note:_ This is a frontend-only implementation (no server-side store or payments). Cart and order data are client-side only.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠 Tech Stack
+
+- Next.js (React)
+- HTML, CSS (Tailwind / custom CSS — adjust if you used plain CSS)
+- JavaScript (ES6+)
+- Vercel (deployment)
+- Optional: SweetAlert2 for alerts (if used in cart flows)
