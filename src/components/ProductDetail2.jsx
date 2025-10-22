@@ -28,12 +28,12 @@ const ProductDetail2 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const cartItem = {
-      productName: "Coco Winter Unstitched Collection - 1A",
-      price: 8916,
-      quantity,
-      user: formData,
-    };
+   const cartItem = {
+  productName: "Coco Winter Unstitched Collection - 2B",
+  price: 9490,
+  quantity,
+  user: formData,
+};
 
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
     existingCart.push(cartItem);

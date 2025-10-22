@@ -29,8 +29,9 @@ const ProductDetail4 = () => {
     e.preventDefault();
 
     const cartItem = {
-      productName: "Coco Winter Unstitched Collection - 1A",
-      price: 8916,
+      productName: "Coco Winter Unstitched Collection - 4A",
+price: 10200,
+
       quantity,
       user: formData,
     };
