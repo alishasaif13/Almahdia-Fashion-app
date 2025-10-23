@@ -1,4 +1,3 @@
-// src/components/Sidebar.jsx
 import { Link } from "react-router-dom";
 import shop1 from "../assets/images/shop1.webp";
 import shop2 from "../assets/images/shop2.webp";
@@ -14,23 +13,33 @@ const products = [
   { id: 5, name: "Coco Winter Unstitched Collection - 7A", price: 9990, image: shop5, link: "/Product5" },
 ];
 
-const ProductSidebar
- = () => {
+const ProductSidebar = () => {
   return (
-    <aside className="md:w-1/4 pr-8 sticky top-0 self-start">
-      <h3 className="text-sm font-semibold tracking-wide mb-3 text-gray-700 uppercase">
+    <aside className="sticky top-4 bg-white md:bg-transparent md:shadow-none shadow-sm rounded-lg p-4 md:p-0">
+      <h3 className="text-sm font-semibold tracking-wide mb-3 text-gray-700 uppercase text-center md:text-left">
         Products
       </h3>
-      <div className="w-8 h-0.5 bg-amber-700 mb-4"></div>
+      <div className="w-8 h-0.5 bg-amber-700 mx-auto md:mx-0 mb-4"></div>
 
       <ul className="space-y-4">
         {products.map((p) => (
-          <li key={p.id}>
-            <Link to={p.link} className="flex items-center gap-3 hover:text-amber-700">
-              <img src={p.image} alt={p.name} className="w-14 h-14 object-cover rounded" />
-              <div>
-                <p className="text-xs font-medium text-gray-800">{p.name}</p>
-                <p className="text-sm font-semibold text-black">Rs{p.price.toLocaleString()}</p>
+          <li key={p.id} className="flex justify-center md:justify-start">
+            <Link
+              to={p.link}
+              className="flex items-center gap-3 hover:text-amber-700 transition w-full max-w-sm"
+            >
+              <img
+                src={p.image}
+                alt={p.name}
+                className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded"
+              />
+              <div className="flex flex-col">
+                <p className="text-xs sm:text-sm font-medium text-gray-800 leading-tight">
+                  {p.name}
+                </p>
+                <p className="text-sm sm:text-base font-semibold text-black">
+                  Rs{p.price.toLocaleString()}
+                </p>
               </div>
             </Link>
           </li>
@@ -40,5 +49,4 @@ const ProductSidebar
   );
 };
 
-export default ProductSidebar 
-;
+export default ProductSidebar;

@@ -19,21 +19,20 @@ const HeroSection = () => {
   };
 
   // ---------- Auto Slide every 3 seconds ----------
-
   useEffect(() => {
-  const interval = setInterval(() => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  }, 3000);
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
 
-  return () => clearInterval(interval);
-}, []); // no dependencies needed
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="relative w-full h-[540px] overflow-hidden">
+    <section className="relative w-full h-[540px] md:h-[600px] overflow-hidden">
       {/* ---------- Image Carousel ---------- */}
-      <div className="w-full h-[550px] overflow-hidden">
+      <div className="w-full h-full">
         <img
           src={images[currentIndex]}
           alt={`Slide ${currentIndex + 1}`}
@@ -43,7 +42,7 @@ const HeroSection = () => {
         {/* Prev Button */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-opacity-50 bg-black text-white p-3 rounded-full hover:bg-black-80 transition"
+          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 sm:p-3 rounded-full hover:bg-black transition"
         >
           &#10094;
         </button>
@@ -51,23 +50,35 @@ const HeroSection = () => {
         {/* Next Button */}
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-opacity-50 bg-black text-white p-3 rounded-full hover:bg-black-80 transition"
+          className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 sm:p-3 rounded-full hover:bg-black transition"
         >
           &#10095;
         </button>
       </div>
 
       {/* ---------- Overlay Text (Right Side) ---------- */}
-      <div className="absolute right-19 top-1/2 transform -translate-y-1/2 w-70 bg-[#edeae1] bg-opacity-80 p-8 rounded-lg shadow-lg max-w-sm text-right">
-        <h2 className="text-3xl md:text-4xl text-black mb-4 text-center">
+      <div
+        className="
+          absolute 
+          top-1/2 
+          transform -translate-y-1/2 
+          right-4 sm:right-10 md:right-20 
+          w-[80%] sm:w-[60%] md:w-72 
+          bg-[#edeae1] bg-opacity-80 
+          p-4 sm:p-6 md:p-8 
+          rounded-lg shadow-lg 
+          text-center md:text-right
+        "
+      >
+        <h2 className="text-2xl sm:text-3xl md:text-4xl text-black mb-4 leading-snug">
           LOOK <br />
           YOUR <br />
           BEST THIS <br />
           WINTER
         </h2>
 
-        <div className="flex justify-center">
-          <button className="border-2 border-black text-black p-2 w-25 rounded-md hover:bg-black hover:text-white transition-all duration-300">
+        <div className="flex justify-center md:justify-end">
+          <button className="border-2 border-black text-black px-4 py-2 rounded-md hover:bg-black hover:text-white transition-all duration-300">
             Explore
           </button>
         </div>

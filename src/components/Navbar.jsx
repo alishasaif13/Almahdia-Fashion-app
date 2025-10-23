@@ -17,19 +17,25 @@ function Navbar() {
   const [cartCount, setCartCount] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const updateCartCount = () => {
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
-      setCartCount(cart.length);
-    };
+  // 🔄 Update cart count from localStorage
+  const updateCartCount = () => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCartCount(cart.length);
+  };
 
+  // 🧠 Listen for cart updates
+  useEffect(() => {
     updateCartCount();
-    window.addEventListener("storage", updateCartCount);
+
+    // Custom event listener for manual dispatch
     window.addEventListener("cartUpdated", updateCartCount);
 
+    // LocalStorage event listener (cross-tab)
+    window.addEventListener("storage", updateCartCount);
+
     return () => {
-      window.removeEventListener("storage", updateCartCount);
       window.removeEventListener("cartUpdated", updateCartCount);
+      window.removeEventListener("storage", updateCartCount);
     };
   }, []);
 

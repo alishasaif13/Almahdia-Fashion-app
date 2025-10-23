@@ -12,30 +12,34 @@ const ProductDetail2 = () => {
   const handleDecrease = () => {
     if (quantity > 1) setQuantity(quantity - 1);
   };
-
-  const handleAddToCart = () => {
-    const cartItem = {
-      productName: "Coco Winter Unstitched Collection - 2B",
-      price: 9490,
-      quantity,
-      image: shop2, // ✅ added image for cart table
-      category: "Premium Prints",
-    };
-
-    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
-    existingCart.push(cartItem);
-    localStorage.setItem("cart", JSON.stringify(existingCart));
-
-    Swal.fire({
-      title: "Added to Cart!",
-      text: "Redirecting to your cart...",
-      icon: "success",
-      confirmButtonColor: "#92400e",
-      confirmButtonText: "Go to Cart",
-    }).then(() => {
-      navigate("/cart");
-    });
+const handleAddToCart = () => {
+  const cartItem = {
+    productName: "Coco Winter Unstitched Collection - 2B",
+    price: 9490,
+    quantity,
+    image: shop2,
+    category: "Premium Prints",
   };
+
+  const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+  existingCart.push(cartItem);
+  localStorage.setItem("cart", JSON.stringify(existingCart));
+
+  // 🔔 Navbar update trigger
+  window.dispatchEvent(new Event("cartUpdated"));
+
+  Swal.fire({
+    title: "Added to Cart!",
+    text: "Redirecting to your cart...",
+    icon: "success",
+    confirmButtonColor: "#92400e",
+    confirmButtonText: "Go to Cart",
+  }).then(() => {
+    navigate("/cart");
+  });
+};
+
+  
 
   return (
     <div className="w-full bg-white flex flex-col md:flex-row px-6 md:px-20 py-10 min-h-screen">

@@ -2,14 +2,13 @@ import React from "react";
 
 const QuestionForm = () => {
   return (
-    <section className="w-full min-h-screen bg-gray-100 flex items-center justify-center py-16 px-4">
-     <div className="bg-white mt-40 shadow-lg rounded-2xl w-full max-w-4xl p-10">
-
+    <section className="w-full bg-gray-100 flex items-center justify-center py-16 px-4">
+      <div className="bg-white mt-20 sm:mt-28 md:mt-40 shadow-lg rounded-2xl w-full max-w-4xl p-6 sm:p-8 md:p-10">
         {/* Heading */}
-        <h2 className="text-3xl font-semibold text-center text-gray-900">
+        <h2 className="text-2xl sm:text-3xl font-semibold text-center text-gray-900">
           Ask a Question
         </h2>
-        <div className="w-34 h-1 bg-amber-700 mx-auto mt-2 mb-8 rounded-full"></div>
+        <div className="w-24 sm:w-32 h-1 bg-amber-700 mx-auto mt-2 mb-8 rounded-full"></div>
 
         {/* Form */}
         <form className="space-y-6">

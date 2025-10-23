@@ -16,28 +16,31 @@ const ProductDetail5 = () => {
 
   // Add to cart and redirect
   const handleAddToCart = () => {
-    const cartItem = {
-      productName: "Coco Winter Unstitched Collection - 4B",
-      price: 12200,
-      quantity,
-      image: shop4,
-      category: "Premium Prints",
-    };
-
-    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
-    existingCart.push(cartItem);
-    localStorage.setItem("cart", JSON.stringify(existingCart));
-
-    Swal.fire({
-      title: "Added to Cart!",
-      text: "Redirecting to your cart...",
-      icon: "success",
-      confirmButtonColor: "#92400e",
-      confirmButtonText: "Go to Cart",
-    }).then(() => {
-      navigate("/cart");
-    });
+  const cartItem = {
+    productName: "Coco Winter Unstitched Collection - 4B",
+    price: 12200,
+    quantity,
+    image: shop4,
+    category: "Premium Prints",
   };
+
+  const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+  existingCart.push(cartItem);
+  localStorage.setItem("cart", JSON.stringify(existingCart));
+
+  // 🔔 Trigger live cart count update in Navbar
+  window.dispatchEvent(new Event("cartUpdated"));
+
+  Swal.fire({
+    title: "Added to Cart!",
+    text: "Redirecting to your cart...",
+    icon: "success",
+    confirmButtonColor: "#92400e",
+    confirmButtonText: "Go to Cart",
+  }).then(() => {
+    navigate("/cart");
+  });
+};
 
   return (
     <div className="w-full bg-white flex flex-col md:flex-row px-6 md:px-20 py-10 min-h-screen">
