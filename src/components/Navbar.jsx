@@ -134,15 +134,12 @@ function Navbar() {
 
           {/* Search + Cart */}
           <div className="hidden md:flex items-center space-x-4 text-gray-800 relative">
-            <button className="p-2 rounded border border-black hover:bg-black hover:text-white transition">
-              <FaSearch size={16} />
-            </button>
-            <span className="text-gray-400">|</span>
+            
             <Link
               to="/cart"
               className="relative p-2 rounded border border-transparent hover:bg-black hover:text-white transition"
             >
-              <FaShoppingCart size={16} />
+              <FaShoppingCart size={20} />
               {cartCount > 0 && (
                 <span className="absolute -top-2 -right-2 bg-amber-700 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
                   {cartCount}

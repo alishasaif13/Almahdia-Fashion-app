@@ -49,12 +49,15 @@ const CartPage = () => {
       title: "Order Placed!",
       text: `Thank you, ${user.name}! Your order is confirmed.`,
       confirmButtonColor: "#92400e",
+    }).then(() => {
+      // ✅ Clear cart and reset form after alert is closed
+      localStorage.removeItem("cart");
+      setCart([]);
+      setUser({ name: "", email: "", phone: "" }); // <--- fields clear
+      window.dispatchEvent(new Event("cartUpdated"));
     });
-
-    localStorage.removeItem("cart");
-    setCart([]);
-    window.dispatchEvent(new Event("cartUpdated"));
   };
+
 
   const grandTotal = cart.reduce(
     (total, item) => total + item.price * item.quantity,
