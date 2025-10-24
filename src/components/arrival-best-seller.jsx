@@ -10,7 +10,7 @@ import collection4 from "../assets/images/arrivel4.webp";
 // ---------- PRODUCT CARD ----------
 const ProductCard = ({ image, title, price, oldPrice, isSale, isOutOfStock }) => {
   return (
-    <div className="relative group flex flex-col items-center text-center hover:scale-105 transition-transform duration-300">
+    <div className="relative group  flex flex-col items-center text-center hover:scale-105 transition-transform duration-300">
       {/* Image Box */}
       <div className="w-full h-[400px] overflow-hidden shadow-lg relative">
         <img
@@ -128,7 +128,7 @@ export const BestSeller = () => {
   ];
 
   return (
-    <section className="py-20 bg-white text-center w-full">
+    <section className="py-10 bg-white text-center w-full">
       <h1 className="text-4xl font-semibold mb-12 text-gray-900">
         Best Sellers
       </h1>

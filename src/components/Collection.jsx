@@ -24,7 +24,7 @@ const collections = [
 
 const Collection = () => {
   return (
-    <section className="py-20 bg-white text-center w-full">
+    <section className="py-15 pb-0.5 bg-white text-center w-full">
       {/* ---------- Title ---------- */}
       <h1 className="text-4xl font-semibold mb-12 text-gray-900 pb-2">
         Our Collection

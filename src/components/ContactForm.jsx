@@ -2,7 +2,7 @@ import React from "react";
 
 const QuestionForm = () => {
   return (
-    <section className="w-full bg-gray-100 flex items-center justify-center py-16 px-4">
+    <section className="w-full bg-gray-100 flex items-center justify-center py-8 pt-1 px-4">
       <div className="bg-white mt-20 sm:mt-28 md:mt-40 shadow-lg rounded-2xl w-full max-w-4xl p-6 sm:p-8 md:p-10">
         {/* Heading */}
         <h2 className="text-2xl sm:text-3xl font-semibold text-center text-gray-900">

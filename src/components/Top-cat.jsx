@@ -3,7 +3,7 @@ import top from "../assets/images/top.jpg"; // image ka correct path
 
 const TopCategories = () => {
   return (
-    <section className="py-20 bg-white text-center w-full">
+    <section className="py-05 bg-white text-center w-full">
       <h1 className="text-4xl font-semibold mb-12 text-gray-900">
         Top Categories
       </h1>
